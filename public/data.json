@@ -1,0 +1,29 @@
+[
+  {
+    "type": "bulb",
+    "id": "1",
+    "name": "Bedroom light",
+    "connectionState": "connected",
+
+    "isTurnedOn": true,
+    "brightness": 10,
+    "color": "#f1f1f1"
+  },
+  {
+    "type": "outlet",
+    "id": "2",
+    "name": "Main kitchen outlet",
+    "connectionState": "disconnected",
+
+    "isTurnedOn": false,
+    "powerConsumption": 240
+  },
+  {
+    "type": "temperatureSensor",
+    "id": "3",
+    "name": "House temp sensor",
+    "connectionState": "poorConnection",
+
+    "temperature": 24
+  }
+]

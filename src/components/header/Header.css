@@ -1,0 +1,15 @@
+.header {
+  background: #edeef7;
+  padding: 20px 15px;
+  text-align: center;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+.headerName {
+  font-size: 1.3em;
+}

@@ -1,0 +1,12 @@
+.detailArea {
+  border-left: 1px solid #edeef7;
+  flex: 1;
+  padding: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .detailArea {
+    border-top: 0.5px solid #edeef7;
+    border-left: none;
+  }
+}
