@@ -6,8 +6,12 @@ import { AiOutlineClose } from "react-icons/ai";
 import "./SmartDeviceDetails.css";
 
 export const SmartDeviceDetails = () => {
-  const { data, deviceIndex, currentPosition, setCurrentPosition } =
+  const { smartDeviceDetails, currentPosition, setCurrentPosition } =
     useContext(AppContext);
+  if (smartDeviceDetails) {
+    console.log("helloo", smartDeviceDetails.device.type);
+  }
+
   const position = { x: currentPosition.x, y: currentPosition.y };
 
   interact(".dragg-resize").draggable({
@@ -65,11 +69,7 @@ export const SmartDeviceDetails = () => {
       className="deviceDetails dragg-resize"
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
     >
-      {data &&
-        data !== null &&
-        data.map((item) => {
-          return item.id === deviceIndex ? handleSelectedItem(item) : null;
-        })}
+      {smartDeviceDetails && handleSelectedItem(smartDeviceDetails.device)}
     </div>
   );
 };

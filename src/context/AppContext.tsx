@@ -23,6 +23,7 @@ interface AppContextInterface {
   currentPosition: { x: number; y: number };
   setCurrentPosition: Dispatch<SetStateAction<{ x: number; y: number }>>;
   active: boolean;
+  smartDeviceDetails: any;
 }
 
 const contextDefaultValues: AppContextInterface = {
@@ -34,6 +35,7 @@ const contextDefaultValues: AppContextInterface = {
   currentPosition: { x: 0, y: 0 },
   setCurrentPosition: (): void => {},
   active: false,
+  smartDeviceDetails: {},
 };
 
 export const AppContext =
@@ -50,15 +52,23 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     contextDefaultValues.deviceIndex
   );
   const [active, setActive] = useState<boolean>(contextDefaultValues.active);
+  const [smartDeviceDetails, setSmartDeviceDetails] = useState();
+  console.log("data from mirage", data);
+  console.log("data 2 from mirage", smartDeviceDetails);
 
-  const getData = () => {
+  const getDevices = () => {
     fetch("api/devices", {})
       .then((response) => response.json())
-      .then((json) => setData(json.SmartDevice));
+      .then((json) => setData(json.devices));
+  };
+  const getDeviceDetails = (currentId: string) => {
+    fetch(`api/devices/${currentId}`, {})
+      .then((response) => response.json())
+      .then((json) => setSmartDeviceDetails(json));
   };
 
   useEffect(() => {
-    getData();
+    getDevices();
   }, []);
 
   const showDetails = (currentId: string): void => {
@@ -69,6 +79,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       setDetails(true);
       setDeviceIndex(currentId);
       setActive(true);
+      getDeviceDetails(currentId);
     }
   };
 
@@ -81,6 +92,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     currentPosition,
     setCurrentPosition,
     active,
+    smartDeviceDetails,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
