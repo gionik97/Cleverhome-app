@@ -68,7 +68,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     getData();
-  }, [data]);
+  }, []);
 
   const showDetails = (currentId: string): void => {
     if (details && currentId === deviceIndex) {
