@@ -3,6 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { AppProvider } from "./context/AppContext";
+import { makeServer } from "./mirage/Server";
+
+if (process.env.NODE_ENV === "development") {
+  makeServer({ environment: "development" });
+}
 
 ReactDOM.render(
   <React.StrictMode>

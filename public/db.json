@@ -1,0 +1,50 @@
+{
+  "SmartDevice": [
+    {
+      "type": "bulb",
+      "id": "1",
+      "name": "Living room bulb",
+      "connectionState": "connected"
+    },
+    {
+      "type": "outlet",
+      "id": "2",
+      "name": "Living room outlet",
+      "connectionState": "disconnected"
+    },
+    {
+      "type": "temperatureSensor",
+      "id": "3",
+      "name": "Living room temperatureSensor",
+      "connectionState": "poor connection"
+    }
+  ],
+
+  "SmartBulb": {
+    "type": "bulb",
+    "id": "1",
+    "name": "string",
+    "connectionState": "string",
+    "isTurnedOn": "boolean",
+    "brightness": "number",
+    "color": "string"
+  },
+  "SmartOutlet": {
+    "type": "bulb",
+    "id": "string",
+    "name": "string",
+    "connectionState": "string",
+    "isTurnedOn": "boolean",
+    "brightness": "number",
+    "color": "string"
+  },
+  "SmartTemperatureSensor": {
+    "type": "bulb",
+    "id": "string",
+    "name": "string",
+    "connectionState": "string",
+    "isTurnedOn": "boolean",
+    "brightness": "number",
+    "color": "string"
+  }
+}

@@ -52,18 +52,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [active, setActive] = useState<boolean>(contextDefaultValues.active);
 
   const getData = () => {
-    fetch("data.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        setData(myJson);
-      });
+    fetch("api/devices", {})
+      .then((response) => response.json())
+      .then((json) => setData(json.SmartDevice));
   };
 
   useEffect(() => {
